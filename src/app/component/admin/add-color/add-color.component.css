@@ -1,0 +1,13 @@
+#title-header{
+    padding: 50px ;
+}
+
+#choose-color{
+    min-height: 500px;
+}
+
+.input-mat{
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}

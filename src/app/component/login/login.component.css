@@ -1,0 +1,87 @@
+#login{
+    width: 100%;
+    overflow: hidden;
+}
+
+.login-left{
+    height: 100vh;
+    background-image: linear-gradient( 109.6deg, rgb(255, 255, 255) 11.2%,  rgb(155, 226, 147) 100.2% );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.main{
+    background-color: aliceblue;
+    box-shadow: 1px 3px 3px rgb(123, 135, 153);
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    position: relative;
+}
+.title > h2{
+    color: white;
+    padding: 10px 0;
+    background-color: blueviolet;
+    display: flex;
+    justify-content: center
+}
+.login-v2{
+    padding: 30px 60px;
+    display: flex;
+    flex-direction: column
+}
+
+.login-v2 a{
+    transition: all 0.3s;
+}
+.login-v2 a:hover{
+    cursor: pointer;
+    color: blueviolet;
+}
+
+.fild{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+}
+.fild > i {
+    margin-right: 20px;
+}
+
+.fild > input{
+    border-bottom: 1px solid rgb(206, 185, 185);
+    padding: 10px 3px;
+    opacity: 0.6;
+    background: transparent;
+    transition: all 0.2s;
+    background-color: none;
+}
+.fild > input:focus{
+    border-bottom: 1px solid rgb(125, 116, 202);
+    
+}
+
+/*[ Button ]*/
+.button-b{
+    background-color: blueviolet;
+    color: white;
+    border-radius: 50px;
+    margin: 15px 0;
+    padding: 10px 0;
+    transition: all 0.3s;
+}
+.login-b:disabled{
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.errors-input{
+    margin-left: 15%;
+    font-size: 0.8rem;
+    color: red;
+    transition: all 0.4s;
+}

@@ -1,0 +1,165 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="productForm">
+    <div class="container">
+        <div class="col-md-12">
+            <mat-card-header>
+                <h4 id="title-header">Thêm sản phẩm mới</h4>
+            </mat-card-header>
+        </div>
+        <div class="col-md-10">
+            <div class="form-group">
+                <div class="row">
+                    <label for="code" class="col-sm-2">
+                        Mã sản phẩm<span class="req">* </span>
+                    </label>
+                    <div class="col-sm-8">
+                        <mat-form-field class="input-mat pCode">
+                            <input matInput placeholder="Product Code" formControlName="productCode"
+                                [errorStateMatcher]="matcher">
+                            <mat-hint>mã sản phẩm không được trùng</mat-hint>
+                            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                                Vui lòng nhập giá trị hợp lệ
+                            </mat-error>
+                            <mat-error *ngIf="emailFormControl.hasError('required')">
+                                Mã sản phẩm là <strong>bắt buộc</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-sm-2">
+                        Tên sản phẩm :<span class="req">* </span>
+                    </label>
+                    <div class="col-sm-8">
+                        <mat-form-field class="input-mat pName">
+                            <input matInput formControlName="name">
+                            <mat-error *ngIf="emailFormControl.hasError('required')">
+                                Tên phẩm là <strong>bắt buộc</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-sm-2">Mô tả :</label>
+                    <div class="col-sm-8">
+                        <mat-form-field class="input-mat pDescription">
+                            <textarea matInput placeholder="Leave a comment" rows="5" formControlName="description"></textarea>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-sm-2">Giảm giá :</label>
+                    <div class="col-sm-4">
+                        <mat-form-field>
+                            <mat-select [(value)]="selectedPoromotion" disableRipple #isPromotion formControlName="isPromotion">
+                                <mat-option value="1">True</mat-option>
+                                <mat-option value="0">False</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-4">
+                        <mat-form-field class="input-mat pPromotion">
+                            <input [attr.disabled]="isPromotion.value === 1 ? false : true" matInput placeholder="phần trăm giảm giá"
+                                value="0" formControlName="percentPromotion">
+                            <span matPrefix>%&nbsp;</span>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-sm-2">Số lượng :</label>
+                    <div class="col-sm-8">
+                        <mat-form-field class="input-mat pQuantity">
+                            <input matInput formControlName="quantity">
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-sm-2">Giá khởi điểm :</label>
+                    <div class="col-sm-8">
+                        <mat-form-field class="input-mat pPrice">
+                            <input matInput formControlName="startPrice">
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-sm-2">Loại sản phẩm :</label>
+                    <div class="col-sm-8">
+                        <mat-form-field>
+                            <mat-select placeholder="Loại sản phẩm">
+                                <mat-option>None</mat-option>
+                                <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-sm-2">Hình ảnh :</label>
+                    <div class="col-sm-8">
+                        <input id="pImage" class="form-control" type="text" />
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-sm-2">Màu sắc :</label>
+                    <div class="col-sm-8">
+                        <mat-form-field>
+                            <mat-select placeholder="Colors" formControlName="_colors">
+                                <mat-option>None</mat-option>
+                                <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-sm-2">Sizes :</label>
+                    <div class="col-sm-8">
+                        <mat-form-field>
+                            <mat-select placeholder="Sizes" formControlName="_sizes">
+                                <mat-option>None</mat-option>
+                                <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-sm-2">Kích hoạt :</label>
+                    <div class="col-sm-1">
+                        <mat-checkbox id="pPercent" formControlName="isActive"></mat-checkbox>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="margin: auto">
+            <button mat-raised-button color="primary" [disabled]="!productForm.valid">Lưu</button>
+        </div>
+
+    </div>
+</form>

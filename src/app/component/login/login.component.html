@@ -1,0 +1,38 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+    <div id="login" class="row no-gutters">
+
+        <div class="login-left col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <div class="login-v1 main">
+                <div class="title">
+                    <h2>Login</h2>
+                </div>
+                <div class="login-v2">
+                    <div style="margin: 20px 5px">
+                        <div class="username fild">
+                            <i class="fa fa-user-o" aria-hidden="true"></i>
+                            <input name="username" type="text" placeholder="Username" required formControlName="username" />
+
+                        </div>
+                        <div *ngIf="loginForm.controls['username'].errors && loginForm.controls['username']?.touched"
+                            class="errors-input">
+                            <div [hidden]="loginForm.controls['username'].required">Username is invalid</div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 20px 5px">
+                        <div class="password fild">
+                            <i class="fa fa-key" aria-hidden="true"></i>
+                            <input name="password" type="password" placeholder="Password" required formControlName="password" />
+                        </div>
+                        <div *ngIf="loginForm.controls['password'].errors && loginForm.controls['password']?.touched"
+                            class="errors-input">
+                            <div [hidden]="loginForm.controls['password'].required">Password is invalid</div>
+                        </div>
+                    </div>
+                    <button type="submit" class="button-b login-b" [disabled]="!loginForm.valid">Login</button>
+                    <span>Don't have account ? <a class="link-register" routerLink="/register">Register Now</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,42 @@
+<form (ngSubmit)="onSubmit()">
+    <div class="container">
+        <div class="col-md-12">
+            <mat-card-header>
+                <h4 id="title-header">Thêm màu mới</h4>
+            </mat-card-header>
+        </div>
+        <div class="col-md-10">
+            <div class="form-group">
+                <div class="row">
+                    <label class="col-sm-2">Chọn loại màu :</label>
+                    <div class="col-sm-4">
+                        <mat-form-field>
+                            <mat-select (click)="selected($event)" placeholder="loại màu">
+                                <mat-option value="Hex">Hex</mat-option>
+                                <mat-option value="RGB">RGB</mat-option>
+                                <mat-option value="Colors">Colors</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-8" id="choose-color">
+                        <mat-tab-group>
+                            <mat-tab label="Hex"> Hex </mat-tab>
+                            <mat-tab label="RGB"> RGB </mat-tab>
+                            <mat-tab label="Colors"> Colors </mat-tab>
+                        </mat-tab-group>
+                    </div>
+                    <div class="col-sm-4">
+                        <mat-form-field class="input-mat">
+                            <input matInput placeholder="giá trị" value="0">
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
